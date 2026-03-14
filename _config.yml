@@ -13,7 +13,7 @@ baseurl: ''
 google_analytics: G-F6G0HN1JDJ
 
 include: ["_pages"]
-permalink: posts/:title/
+permalink: notes/:title/
 
 locale: en_US
 
@@ -31,7 +31,7 @@ plugins:
 # Defaults
 defaults:
 
-  # all posts
+  # all notes
   - scope:
       path: "_posts"
     values:
@@ -57,4 +57,4 @@ paginate: 10
 
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, README.md, Gemfile, Gemfile.lock, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+exclude: [README.markdown, README.md, Gemfile, Gemfile.lock, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules, _pages/categories.html, _pages/tags.html]

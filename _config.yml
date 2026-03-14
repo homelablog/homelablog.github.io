@@ -1,10 +1,11 @@
 # Site
-name: 'Thoughts & Tricks'
-description: 'Personal thoughts and some tricks discovered along the way'
-tagline: Personal thoughts and some tricks discovered along the way
+name: 'Home Lab Notes'
+description: 'Notes and discoveries from my home lab'
+tagline: Notes and discoveries from my home lab
 
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
+url: 'https://homelabnotes.github.io'
 baseurl: ''
 # disqus: 'demowebsite'
 # email: 'wowthemesnet@gmail.com'

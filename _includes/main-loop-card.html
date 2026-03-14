@@ -6,7 +6,6 @@
     <p class="note-card-excerpt">
       {{ post.excerpt | strip_html | strip_newlines | truncate: 186 }}
     </p>
-    <span class="note-card-date">{{ post.date | date: '%b %Y' }}</span>
   </div>
   {% if post.image %}
     <a href="{{ site.baseurl }}{{ post.url }}">

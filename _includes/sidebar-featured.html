@@ -1,14 +1,10 @@
-<div class="sticky-top sticky-top-offset">
-    <h4 class="spanborder" style="font-weight: 700;">Featured</h4>  
-    <ol class="list-featured">				
-        {% for post in site.tags.featured %}                
-            <li class="mb-4">
-            <span>
-                <h6 class="font-weight-bold">
-                    <a href="{{site.baseurl}}{{ post.url }}" class="text-dark">{{ post.title }}</a>
-                </h6>
-            </span>
-            </li>                
-        {% endfor %}   
-    </ol>
-</div> 
+<div class="sidebar-featured">
+  <h4>Featured</h4>
+  <ol>
+    {% for post in site.tags.featured %}
+      <li>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+</div>

@@ -2,108 +2,73 @@
 title: "Home"
 layout: default
 pagination:
-    enabled: true
+  enabled: true
 description: "Notes about how I built and run my smart home"
 ---
 
-
-<div class="container">
-    
 {% if page.url == "/" %}
 
-    <section class="intro-section py-5 mb-4">
-        <h2 class="mb-3" style="font-family: 'Merriweather', serif; font-weight: 600;">Notes about how I built and run my smart home.</h2>
-        <p class="lead text-muted" style="font-family: 'Lora', serif; line-height: 1.7;">
-            Over the years I experimented with different technologies including
-            KNX, Home Assistant and Apple Home. This site collects a few notes
-            about the architecture, integrations and lessons learned while running
-            the system.
-        </p>
-        <p class="text-muted" style="font-family: 'Lora', serif; line-height: 1.7;">
-            It is not an actively maintained blog — just a small collection of
-            technical notes.
-        </p>
-    </section>
+<section class="intro-section">
+  <h2>Notes about how I built and run my smart home.</h2>
+  <p class="lead">
+    Over the years I experimented with different technologies including
+    KNX, Home Assistant and Apple Home. This site collects a few notes
+    about the architecture, integrations and lessons learned while running
+    the system.
+  </p>
+  <p>
+    It is not an actively maintained blog — just a small collection of
+    technical notes.
+  </p>
+</section>
 
-    {% for post in site.posts %} 
+{% for post in site.posts %}
+  {% if post.tags contains "sticky" %}
+    <div class="sticky-note">
+      <div class="sticky-note-content">
+        <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+        <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}</p>
+        <a href="{{ site.baseurl }}{{ post.url }}">Read more →</a>
+      </div>
+      {% if post.image %}
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          <img class="sticky-note-image" src="{% if post.image contains '://' %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endfor %}
 
-        {% if post.tags contains "sticky" %}
-     
-           <div class="jumbotron jumbotron-fluid jumbotron-home pt-0 pb-0 mt-3 mb-2rem bg-lightblue position-relative">
-                <div class="pl-4 pr-0 h-100 tofront">
-                    <div class="row justify-content-between">
-                        <div class="col-md-6 pt-6 pb-6 pr-lg-4 align-self-center">
-                            <h2 class="mb-3" style="font-family: 'Merriweather'; font-weight: bold;">{{post.title}}</h2>
-                            <p class="mb-3 lead">
-                                {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }}
-                            </p>
-                            <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">Read More</a>
-                        </div>
-                        <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url({{site.baseurl}}/{{ post.image }});">	
-                        </div>
-                    </div>
-                </div>
-            </div> 
+{% endif %}
 
-        {% endif %}
+<div class="notes-layout">
+  <div class="notes-main">
+    <h4 class="section-heading">All Notes</h4>
 
+    {% for post in paginator.posts %}
+      {% include main-loop-card.html %}
     {% endfor %}
 
-{% endif %} <!--endif page url is / -->
+    {% if paginator.total_pages > 1 %}
+      <nav class="pagination">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">← Prev</a>
+        {% else %}
+          <span class="disabled">← Prev</span>
+        {% endif %}
 
+        <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
 
-<div class="row mt-3">
-   
-    <div class="col-md-8 main-loop">
-        
-        <h4 class="spanborder" style="font-weight: 700;">All Notes</h4>  
-        
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next →</a>
+        {% else %}
+          <span class="disabled">Next →</span>
+        {% endif %}
+      </nav>
+    {% endif %}
+  </div>
 
-        {% for post in site.posts %}
-
-            {% include main-loop-card.html %}
-        
-        {% endfor %}
-        
-        <div class="mt-5">
-         <!-- Pagination links -->
-            {% if paginator.total_pages > 1 %}
-            <ul class="pagination"> 
-              {% if paginator.previous_page %}
-                <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
-              {% else %}
-                <li class="page-item disabled"><span class="prev page-link">&laquo;</span></li>
-              {% endif %}
-
-              {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                <li class="page-item disabled"><span class="webjeda page-link">{{ page }}</span></li>
-                {% elsif page == 1 %}
-                <li class="page-item"><a class="page-link" href="{{site.baseurl}}/">{{ page }}</a></li>
-                {% else %}
-                <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
-                {% endif %}
-              {% endfor %}
-
-              {% if paginator.next_page %}
-                <li class="page-item"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
-              {% else %}
-                <li class="page-item disabled"><span class="next page-link">&raquo;</span></li>
-              {% endif %}
-            </ul>
-            {% endif %}      
-        </div>
-        
-    </div>
-
-    <div class="col-md-4">
-        {% include sidebar-featured.html %}    
-    </div>
-
-
-    
-</div>
-
-
-
+  <aside class="notes-sidebar">
+    {% include sidebar-featured.html %}
+  </aside>
 </div>

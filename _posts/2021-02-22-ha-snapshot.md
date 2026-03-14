@@ -20,7 +20,7 @@ My only consolation is the fact that the majority of my Home Assistant configura
 
 ![tweet](/assets/images/raspberry-died-tweet.png)
 
-The first blog post I wrote about smart home automation really helped me out in the recovery phase. The process for settings up again an empty environment were fast and easy to apply. But there were (and still are) a few things it will take some time to re-arrange. The characteristic positivity is telling me this way I will be able to do things better, at least.
+The first note I wrote about smart home automation really helped me out in the recovery phase. The process for settings up again an empty environment were fast and easy to apply. But there were (and still are) a few things it will take some time to re-arrange. The characteristic positivity is telling me this way I will be able to do things better, at least.
 
 Here’s what I lost. And what you may also lost if you don’t take some precautions.
 

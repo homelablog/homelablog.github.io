@@ -7,17 +7,6 @@ layout: default
 		<div class="h-100 tofront">
 			<div class="row {% if page.image %} justify-content-between {% else %} justify-content-center {% endif %}">
 				<div class="{% if page.image %} col-md-6 {% else %} col-md-8 {% endif %} pr-0 pr-md-4 pt-4 pb-4 align-self-center">
-					<p class="text-uppercase font-weight-bold">
-                        <span class="catlist">
-						    {% for category in page.categories %}
-                                <a class="sscroll text-danger" href="{{site.baseurl}}/categories.html#{{ category | downcase }}" style="font-family: 'Work Sans', sans-serif;">
-                                    {{ category | downcase }}
-                                </a>
-                                <span class="sep">, </span>
-                            {% endfor %}
-                        </span>
-					</p>
-                    
                     {% if page.lang == 'bn' %}
                         <h1 class="display-4 mb-4 article-headline" style="font-family: 'Hind Siliguri', sans-serif; font-weight: 700;">{{ page.title }}</h1>
                     {% else %}
@@ -26,7 +15,7 @@ layout: default
 
 					<div class="d-flex align-items-center">
                         <span class="text-muted d-block mt-1" style="font-family: 'Work Sans', sans-serif;">
-                            {{ page.date | date: '%b %d, %Y' }} · {% include meta-read-time.html %}
+                            {{ page.date | date: '%b %Y' }} · {% include meta-read-time.html %}
                         </span>
                     </div>
                     
@@ -50,24 +39,15 @@ layout: default
             <!-- Article -->
             
             {% if page.lang == 'bn' %}
-                <article class="article-post" style="font-family: 'Hind Siliguri', sans-serif; text-align: justify; font-size: 19.5px">                
+                <article class="article-note" style="font-family: 'Hind Siliguri', sans-serif; text-align: justify; font-size: 19.5px">                
                     {{ content }}                
                 </article>
             {% else %}
-                <article class="article-post" style="font-family: 'Merriweather', sans-serif; text-align: justify; font-size: 19.5px">                
+                <article class="article-note" style="font-family: 'Merriweather', sans-serif; text-align: justify; font-size: 19.5px">                
                     {{ content }}                
                 </article>
             {% endif %}
             
-			
-			<!-- Tags -->
-			<div class="mb-4">
-				<span class="taglist">
-				{% for tag in page.tags %}
-				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="{{site.baseurl}}/tags.html#{{ tag | downcase }}" style="font-family: 'Work Sans', sans-serif;">{{ tag | downcase }}</a>
-				{% endfor %}
-				</span>
-			</div>
  
             <!-- Mailchimp Subscribe Form -->
             {% if site.mailchimp-list %}

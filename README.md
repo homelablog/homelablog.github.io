@@ -31,10 +31,10 @@ To stop: `Ctrl+C`.
 
 - ### New Fonts Added
 
-    Added 'Merriweather' font for post content and 'Lexend Deca' for post title. Improves readibility.
+    Added 'Merriweather' font for note content and 'Lexend Deca' for note title. Improves readibility.
 
-    Hind Siliguri by Google Fonts has been added to this theme for supporting posts written in Bengali.
-    In order to use the font, add `lang: bn` line to the top of markdown file of the post.
+    Hind Siliguri by Google Fonts has been added to this theme for supporting notes written in Bengali.
+    In order to use the font, add `lang: bn` line to the top of markdown file of the note.
 
 - ### Elegant Homepage
 

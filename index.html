@@ -3,13 +3,27 @@ title: "Home"
 layout: default
 pagination:
     enabled: true
-description: "Personal thoughts and some tricks discovered along the way"
+description: "Notes about how I built and run my smart home"
 ---
 
 
 <div class="container">
     
 {% if page.url == "/" %}
+
+    <section class="intro-section py-5 mb-4">
+        <h2 class="mb-3" style="font-family: 'Merriweather', serif; font-weight: 600;">Notes about how I built and run my smart home.</h2>
+        <p class="lead text-muted" style="font-family: 'Lora', serif; line-height: 1.7;">
+            Over the years I experimented with different technologies including
+            KNX, Home Assistant and Apple Home. This site collects a few notes
+            about the architecture, integrations and lessons learned while running
+            the system.
+        </p>
+        <p class="text-muted" style="font-family: 'Lora', serif; line-height: 1.7;">
+            It is not an actively maintained blog — just a small collection of
+            technical notes.
+        </p>
+    </section>
 
     {% for post in site.posts %} 
 
@@ -42,7 +56,7 @@ description: "Personal thoughts and some tricks discovered along the way"
    
     <div class="col-md-8 main-loop">
         
-        <h4 class="spanborder" style="font-weight: 700;">All Posts</h4>  
+        <h4 class="spanborder" style="font-weight: 700;">All Notes</h4>  
         
 
         {% for post in site.posts %}

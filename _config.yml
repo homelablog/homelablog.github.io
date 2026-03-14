@@ -1,11 +1,11 @@
 # Site
-name: 'Home Lab Notes'
+name: 'Homelab Log'
 description: 'Notes and discoveries from my home lab'
 tagline: Notes and discoveries from my home lab
 
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
-url: 'https://homelabnotes.github.io'
+url: 'https://homelablog.github.io'
 baseurl: ''
 # disqus: 'demowebsite'
 # email: 'wowthemesnet@gmail.com'
